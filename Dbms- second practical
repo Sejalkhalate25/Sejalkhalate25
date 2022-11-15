@@ -1,0 +1,103 @@
+EXPERIMENT – 2 RELATIONAL MODEL
+
+AIM: To Represent all the entities (Strong, Weak) in tabular fashion. Represent relationships in a tabular fashion.
+
+
+1.	Bus: Bus(BusNo: String, Source: String, Destination: String, CoachType: String)
+
+
+ColumnName	Datatype	Constraints	Type of Attributes
+BusNo	Varchar(10)	Primary key	Single-value
+Source	Varchar(20)		Single-value
+Destination	Varchar(20)		Simple
+CoachType	Varchar(10)		Simple
+Mysql>create table Bus(BusNo varchar(10),source varchar(20),Destination varchar(20),coachType varchar(10),primary key(BusNo));
+
+Mysql>desc Bus;
+
+
+
+Ticket:
+
+Ticket(TicketNo: string, DOJ: date, Address:string,ContactNo: string, BusNo:String, SeatNo :Integer, Source: String, Destination: String)
+ 
+ColumnName	Datatype	Constraints	Type of Attributes
+TicketNo	Varchar(20)	Primary Key	Single-valued
+			
+DOJ	Date		Single-valued
+Address	Varchar(20)		Composite
+ContactNo	Integer		Multi-valued
+BusNo	Varchar(10)	Foreign Key	Single-valued
+SeatNo	Integer		Simple
+Source	Varchar(10)		Simple
+Destination	Varchar(10)		Simple
+
+Mysql> create table ticket(ticketno varchar(20), doj date,address varchar(20),contactno int, busno varchar(20),seatno int,source varchar(10),destination varchar(10),primary key(ticketno,busno) foreign key(busno) references bus(busno);
+
+Mysql>desc Ticket;
+
+
+
+Passenger:
+
+Passenger(PassportID: String, TicketNo:string,Name: String, ContactNo:string,Age: integer, Sex: character, Address: String);
+
+ColumnName	Datatype	Constraints	Type of Attributes
+PassportID	Varchar(15)	Primary Key	Single-valued
+TicketNo	Varchar(20)	Foreign Key	Single-valued
+ 
+Name	Varchar(20)		Composite
+ContactNo	Varchar(20)		Multi-valued
+Age	Integer		Single-valued
+Sex	character		Simple
+Address	Varchar(20)		Composite
+
+
+Mysql> Create table passenger(passportID varchar(15) ,TicketNo varchar(15),Name varchar(15),ContactNo varchar(20),Age integer, sex char(2),address varchar(20), primary key(passportID,TicketNo),foreign key(TicketNo) references Ticket(TicketNo));
+Mysql> desc passenger;
+
+
+
+
+Reservation:
+
+Reservation(PNRNo: String, DOJ: Date, NoofSeats: integer , Address: String ,ContactNo: String, , BusNo: String,SeatNo:Integer)
+
+
+
+ColumnName	Datatype	Constraints	Type of Attributes
+PNRNo	Varchar(20)	Primary Key	Single-valued
+DOJ	date		Single-valued
+No_of_Seats	Integer		Simple
+Address	Varchar(20)		Composite
+ContactNo	Varchar(10)		Multi-valued
+ 
+BusNo	Varchar(10)	Foreign Key	Single-valued
+SeatNo	Integer		Simple
+Mysql> Create table Resevation(PNRNo varchar(20),DOJ date,NoofSeates integer,Address varchar(20),ContactNo varchar(20),BusNo varchar(20),SeatNo integer, primary key(PNRNo,BusNo),foreign key(BusNo) references Bus(BusNo));
+
+Mysql> desc reservation;
+
+
+
+
+Cancellation:
+
+Cancellation (PNRNo: String,DOJ: Date, SeatNo: integer,ContactNo: String,Status: String)
+
+
+ColumnName	Datatype	Constraints	Type of Attributes
+PNRNo	Varchar(10)	Primary Key	Single-valued
+DOJ	date		Single-valued
+SeatNo	Integer		Simple
+ContactNo	Varchar(15)		Multi-valued
+Status	Varchar(10)		Simple
+
+
+Mysql> create table cancellation(PNRNo varchar(10),DOJ date,SeatNo integer, ContactNo varchar(15),Status varchar(10), primary key(PNRNo), foreign key(PNRNo) references reservation(PNRNo));
+
+Mysql> desc cancellation;
+ 
+
+ 
+ 
