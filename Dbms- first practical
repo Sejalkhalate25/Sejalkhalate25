@@ -1,0 +1,104 @@
+
+EXPERIMENT- 1
+CONCEPT DESIGN WITH E-R MODEL
+
+AIM: To Relate the entities appropriately. Apply cardinalities for each relationship. Identify strong and weak entities. Indicate the type of relationships (total/partial). Incorporate generalization, aggregation and specialization etc wherever required.
+
+E-R Model
+
+Bus
+•	BusNo
+•	Source
+•	Destination
+•	CoachType
+
+SCHEMA
+
+Bus: Bus(BusNo :String ,Source : String, Destination: String, Coach Type: String)
+
+
+
+
+
+
+
+Ticket
+•	TicketNo
+•	DOJ
+•	Address
+•	ContactNo
+•	BusNo
+ 
+•	SeatNo
+•	Source
+•	Destination
+
+SCHEMA
+
+Ticket (TicketNo: string, DOJ: date, Address: string, ContactNo : string, BusNo:String SeatNo : Integer, Source: String, Destination: String)
+
+
+
+
+
+
+Passenger
+•	PassportID
+•	TicketNo
+•	Name
+•	ContactNo
+•	Age
+•	Sex
+•	Address
+
+SCHEMA
+
+Passenger (PassportID: String, TicketNo :string, Name: String, ContactNo: string, Age: integer, Sex: character, Address: String)
+ 
+
+ 
+
+
+
+
+
+
+
+Reservation
+•	PNRNo
+•	DOJ
+•	No_of_seats
+•	Address
+•	ContactNo
+•	BusNo
+•	SeatNo
+
+
+SCHEMA
+Reservation(PNRNo: String, DOJ: Date, NoofSeats: integer , Address: String ,ContactNo: String, , BusNo: String,SeatNo:Integer)
+ 
+
+ 
+
+
+
+
+Cancellation
+•	PNRNo
+•	DOJ
+•	SeatNo
+•	ContactNo
+•	Status
+
+
+SCHEMA
+
+Cancellation (PNRNo: String, DOJ: Date, SeatNo: integer, ContactNo: String, Status: String)
+
+
+ 
+CONCEPT DESIGN WITH E-R MODEL
+
+
+
+
