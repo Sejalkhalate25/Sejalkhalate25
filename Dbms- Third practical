@@ -1,0 +1,39 @@
+EXPERIMENT – 3 NORMALIZATION
+
+
+AIM: Apply the database Normalization techniques for designing relational database tables to minimize duplication of information like 1NF, 2NF, 3NF, BCNF.
+
+Normalization is a process of converting a relation to be standard form by decomposition a larger relation into smaller efficient relation that depicts a good database design.
+
+
+•	1NF: A Relation scheme is said to be in 1NF if the attribute values in the relation are atomic.i.e., Mutli –valued attributes are not permitted.
+
+
+•	2NF: A Relation scheme is said to be in 2NF,iff and every Non-key attribute is fully functionally dependent on primary Key.
+
+
+•	3NF: A Relation scheme is said to be in 3NF,iff and does not have transitivity dependencies. A Relation is said to be 3NF if every determinant is a key for each & every functional dependency.
+
+
+•	BCNF: A Relation scheme is said to be BCNF if the following statements are true for eacg FD P->Q in set F of FDs that holds for each FD. P->Q in set F of FD’s that holds over R. Here P is the subset of attributes of R & Q is a single attribute of R.
+
+
+The given FD is a trival
+
+
+P is a super key.
+ 
+Normalized tables are:-
+
+Mysql> create table Bus2(BusNo varchar(20) primary key,Source varchar(20),Destination varchar(20));
+
+Mysql>Create table passenger4(PPN varchar(15) Primary key,Name varchar(20),Age integer,Sex char,Address varchar(20));
+
+Mysql> Create table PassengerTicket(PPN varchar(15) Primary key,TicketNo integer);
+
+Mysql> Create table Reservation2(PNRNO integer Primary key, JourneyDate DateTime,NoofSeats int,Address varchar(20),ContactNo Integer);
+
+Mysql> create table Cancellation2(PNRNO Integer primary key,JourneyDate DateTime,NoofSeats Integer,Address varchar(20),ContactNo Integer,foreign key(PNRNO) references Reservation2(PNRNO));
+
+Mysql> Create table Ticket2(TicketNo Integer Primary key,JourneyDate DateTime, Age Int(4),Sex char(2),Source varchar(20),Destination varchar(20),DeptTime varchar(2));
+ 
