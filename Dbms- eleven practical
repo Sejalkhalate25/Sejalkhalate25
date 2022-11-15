@@ -1,0 +1,75 @@
+Assignment No-4 Title:- To design SQL queries using join operation.
+Objective:-Understand the concept of SQL JOIN operation and its types, to Design SQL queries using join operation .
+Theory:- JoIn:-
+The SQL Joins clause is used to combine records from two or more tables in a database. A JOIN is a means for combining fields from two tables by using values common to each. Consider the following two tables
+Types of join:-
+•	INNER JOIN
+•	OUTER JOIN
+	Left outer join
+	Right outer join
+	full outer join
+•	NATURAL JOIN
+•	CROSS JOIN or CARTESION JOIN
+1.)	INNER JOIN:-
+This is a simple JOIN in which the result is based on matched data as per the equality condition specified in the query.
+Inner Join Syntax is:-
+SELECT column-name-list from table-name1
+INNER JOIN
+table-name2
+WHERE table-name1.column-name = table-name2.column-name; Inner JOIN query will be,
+SELECT * from class, class_info where class.id = class_info.id;
+
+2.) Natural JOIN:-
+Natural Join is a type of Inner join which is based on column having same name and same datatype present in both the tables to be joined.
+Natural Join Syntax is:-
+SELECT *
+ 
+from table-name1
+NATURAL JOIN
+table-name2;
+
+3.) Outer JOIN:-
+Outer Join is based on both matched and unmatched data. Outer Joins subdivide further into,
+•	Left Outer Join
+•	Right Outer Join
+•	Full Outer Join
+Left Outer Join:-
+The left outer join returns a result table with the matched data of two tables then remaining rows of the left table and null for the right table's column.
+
+
+Left Outer Join syntax is,
+SELECT column-name-list from table-name1
+LEFT OUTER JOIN
+table-name2
+on table-name1.column-name = table-name2.column-name;
+
+Left outer Join Syntax for Oracle is,
+select column-name-list from table-name1,
+table-name2
+on table-name1.column-name = table-name2.column-name(+);
+
+Right Outer Join:-
+The right outer join returns a result table with the matched data of two tables then remaining rows of the right table and null for the left table's columns.
+Right Outer Join Syntax is,
+select column-name-list from table-name1 RIGHT OUTER JOIN
+table-name2
+on table-name1.column-name = table-name2.column-name;
+
+Right outer Join Syntax for Oracle is,
+select column-name-list from table-name1,
+table-name2
+on table-name1.column-name(+) = table-name2.column-name;
+ 
+Full Outer Join:-
+The full outer join returns a result table with the matched data of two table then remaining rows of both left table and then the right table.
+Full Outer Join Syntax is,
+select column-name-list from table-name1 FULL OUTER JOIN
+table-name2
+on table-name1.column-name = table-name2.column-name; 4.) CROSS JOIN/CARTESION JOIN:-
+The CARTESIAN JOIN or CROSS JOIN returns the Cartesian product of the sets of records from two or more joined tables. Thus, it equates to an inner join where the join-condition always evaluates to either True or where the join-condition is absent from the statement.
+
+Syntax
+The basic syntax of the CARTESIAN JOIN or the CROSS JOIN is as follows −
+SELECT table1.column1, table2.column2... FROM table1, table2 [, table3 ]
+
+Conclusion: Here we understood the concept of SQL join operation and its types. Learned how to design sub queries using join.
