@@ -1,0 +1,112 @@
+EXPERIMENT – 6
+Querying (using ANY, ALL, IN, Exists, NOT EXISTS, UNION, INTERSECT, Constraints etc.) Aim: Practice the following Queries:
+1.	Display unique PNR_NO of all passengers
+2.	Display all the names of male passengers.
+3.	Display the ticket numbers and names of all the passengers.
+4.	Find the ticket numbers of the passengers whose name start with ‘r’ and ends with ‘h’.
+5.	Find the names of Passengers whose age is between 30 and 45.
+6.	Display all the passengers names beginning with ‘A’.
+7.	Display the sorted list of Passengers names
+
+
+
+ 
+mysql> insert into passenger2 values(82302,'Smith',23,'M','Hyderabad'); Query OK, 1 row affected (0.02 sec)
+
+
+mysql> insert into passenger2 values(82303,'Neha',23,'F','Hyderabad'); Query OK, 1 row affected (0.01 sec)
+
+
+mysql> insert into passenger2 values(82304,'Neha',35,'F','Hyderabad'); Query OK, 1 row affected (0.03 sec)
+
+
+mysql> insert into passenger2 values(82306,'Ramu',40,'M','Hyderabad'); Query OK, 1 row affected (0.02 sec)
+
+
+mysql> insert into passenger2 values(82308,'Aakash',40,'M','Hyderabad'); Query OK, 1 row affected (0.02 sec)
+
+
+mysql> insert into passenger2 values(82402,'Aravind',42,'M','Hyderabad'); Query OK, 1 row affected (0.02 sec)
+
+
+mysql> insert into passenger2 values(82403,'Avinash',42,'M','Hyderabad'); Query OK, 1 row affected (0.02 sec)
+
+
+mysql> insert into passenger2 values(82502,'Ramesh',23,'M','Hyderabad'); Query OK, 1 row affected (0.02 sec)
+
+
+mysql> insert into passenger2 values(82602,'Rajesh',23,'M','Hyderabad'); Query OK, 1 row affected (0.02 sec)
+ 
+RESERVATION2
+
+mysql> insert into reservation2 values(10201,'2012-02-20 10:20:25',05,'HYD',9654 235242); Query OK, 1 row affected (0.03 sec)
+
+
+mysql> insert into reservation2 values(10202,'2012-02-22 10:22:25',05,'HYD',9654 232451); Query OK, 1 row affected (0.02 sec)
+
+
+mysql> insert into reservation2 values(10203,'2012-03-22 10:30:25',05,'DELHI',96 54587960); Query OK, 1 row affected (0.01 sec)
+
+
+mysql> insert into reservation2 values(10204,'2013-03-22 11:30:25',05,'CHENNAI', 9845761254); Query OK, 1 row affected (0.02 sec)
+
+
+1.	Display unique PNR_NO of all reservation Mysql>Select DISTINCT PNR_NO from Reservation;
+
+PNR_No
+10201
+10202
+10203
+10204
+
+ 
+2.	Display all the names of male passengers.
+
+mysql> Select p.name from passenger2 p
+where	p.passportid IN (select p2.passportid from passenger2 p2 where		p2.sex='M');
+
+ 
+ 
+ 
+3.	Display the ticket numbers and names of all the passengers.
+
+
+mysql> select t.ticketno,p.name from passengerticket t,passenger2 p where t.passportid = p.passportid;
+
+
+
+
+
+ 
+4.	Find the ticket numbers of the passengers whose name start with ‘r’ and ends with ‘h’.
+
+MySQL> SELECT Name FROM Passenger WHERE name LIKE ‘R%H’
+
+Name
+Rajesh
+Ramesh
+Ramesh
+
+
+ 
+5.	Find the names of Passengers whose age is between 30 and 45.
+
+MySQL> SELECT Name FROM PASSENGER WHERE AGE BETWEEN 30 AND 45
+
+ 
+
+6.	Display all the passengers names beginning with ‘A’.
+
+MySQL> SELECT * FROM PASSENGER WHERE NAME LIKE ‘A%’;
+
+Name
+Akash
+Arivind
+Avinash
+
+ 
+
+7.	Display the sorted list of Passengers names
+
+MySQL> SELECT NAME FROM PASSENGER ORDER BY NAME;
+
