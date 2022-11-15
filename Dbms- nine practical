@@ -1,0 +1,42 @@
+EXPERIMENT – 9 PROCEDURES
+
+Aim: Creation of stored Procedures and Execution of Procedures and Modification of Procedures.
+Ex1:
+
+CREATE PROCEDURE BUS_PROC1() BEGIN SELECT * FROM BUS;
+END$$
+
+CALL BUS_PROC1()$$
+
+
+
+
+Ex2:
+CREATE PROCEDURE SAMPLE2() BEGIN DECLARE X INT(3); SET X=10;
+SELECT X;
+
+END$$
+Mysql> CALL SAMPLE2()$$
+ 
+
+
+
+
+
+ 
+
+
+
+
+Ex3: CREATE PROCEDURE SIMPLE_PROC(OUT PARAM1 INT) BEGIN SELECT COUNT(*) INTO PARAM1 FROM BUS;
+
+
+END$$
+
+
+
+Mysql> CALL SIMPLE_PROC(@a)$$ Mysql> select @a;
+
+
+
+
