@@ -1,0 +1,75 @@
+EXPERIMENT – 7
+Querying Aggregate Functions(COUNT,SUM,AVG,MAX and MIN)
+
+Aim: To Practice Queries using Aggregate functions for the following
+
+1.	Write a Query to display the information present in the passenger and cancellation tables
+2.	Display the number of days in a week on which the AP123 bus is available
+3.	Find number of tickets booked for each PNR_No using GROUP BY CLAUSE
+4.	Find the distinct PNR Numbers that are present.
+
+
+1.	Write a Query to display the information present in the passenger and cancellation tables
+
+
+MYSQL> CREATE TABLE CANCELLATION2(PNRNO INT PRIMARY KEY,JOURNEYDATE DATETIME, NOOFSEATS INT,ADDRESS VARCHAR(20),CONTACTNO INT,STATUS VARCHAR(10),FOREIGN KEY(PNRNO) REFERENCES RESERVATION2(PNRNO));
+
+
+mysql> INSERT INTO CANCELLATION2 VALUES(10201,'2012-02-20 10:20:25',2,'HYD',9654235242,'CONFIRM');
+
+
+mysql> INSERT INTO CANCELLATION2 VALUES(10202,'2012-02-22 10:22:25',2,'HYD',9654232451,'CONFIRM');
+
+
+mysql> INSERT INTO CANCELLATION2 VALUES(10203,'2012-03-22 10:30:25',2,'DELHI',9654587960,'CONFIRM');
+ 
+MySQL> SELECT * FROM RESERVATION UNION SELECT * FROM CANCELLATION;
+
+
+
+2.	Display the Minimum age of the Passenger
+
+MySQL> SELECT MIN(AGE) as MINAGE FROM PASSENGER;
+
+ 
+3.	Find number of tickets booked for each PNR_No using GROUP BY CLAUSE
+
+MySQL> SELECT PNRNO,SUM(No_of_SEATS) AS SUM_OF_SEATS FROM RESERVATION2	GROUP BY PNRNO;
+
+
+
+4	Find the distinct PNR Numbers that are present.
+
+MySQL> SELECT DISTINCT PNR_NO FROM RESERVATION2;
+
+ 
+5	Mysql> select sum(Noofseats) from Cancellation2;
+
+
+
+6	Find the total number of cancelled seats.
+
+MySQL> select sum(noofseats) as canceled_seats from cancellation2;
+
+ 
+
+
+
+
+
+
+Creation and Droping of Views
+
+mysql> create table students(sid int primary key,name varchar(15),login varchar(15), age int,gpa real); mysql> create table Enrolled(sid int,cid int,grade varchar(5),primary key(sid,cid), foreign key(sid) references students(sid));
+
+
+mysql>create view BStudents(name,sid,course) AS SELECT s.name,s.sid,E.cid from students s,enrolled E where s.sid=e.sid AND E.grade='B';
+ 
+
+
+Syntax: Drop view viewname;
+
+Mysql> Drop view Bstudents; Mysql> Drop view Goodstudents;
+
+
+
