@@ -1,0 +1,48 @@
+EXPERIMENT – 5 PRACTICING DML COMMANDS
+
+AIM: Create a DML Commands are used to manage data within the scheme objects.
+
+DML Commands:
+
+INSERT COMMAND ON BUS2 & PASSENGER2 RELATIONS
+
+
+mysql> select * from Bus2; Empty set (0.00 sec)
+
+mysql> insert into Bus2 values(1234,'Hyderabad','Tirupathi'); Query OK, 1 row affected (0.03 sec)
+mysql> insert into Bus2 values(2345,'Hyderabad','Banglore'); Query OK, 1 row affected (0.01 sec)
+mysql> insert into Bus2 values(23,'Hyderabad','Kolkata'); Query OK, 1 row affected (0.03 sec)
+mysql> insert into Bus2 values(45,'Tirupathi','Banglore'); Query OK, 1 row affected (0.03 sec)
+mysql> insert into Bus2 values(34,'Hyderabad','Chennai'); Query OK, 1 row affected (0.03 sec)
+ 
+mysql> select * from Bus2;
+
+ 
+mysql> select * from Passenger2; Empty set (0.00 sec)
+mysql> insert into Passenger2 values(145,'Ramesh',45,'M','abc123'); Query OK, 1 row affected (0.05 sec)
+mysql> insert into Passenger2 values(278,'Geetha',36,'F','abc124'); Query OK, 1 row affected (0.02 sec)
+mysql> insert into Passenger2 values(4590,'Ram',30,'M','abc12'); Query OK, 1 row affected (0.03 sec)
+mysql> insert into Passenger2 values(6789,'Ravi',50,'M','abc14'); Query OK, 1 row affected (0.03 sec)
+mysql> insert into Passenger2 values(5622,'Seetha',32,'F','abc55'); Query OK, 1 row affected (0.03 sec)
+mysql> select * from Passenger2;
+
+ 
+UPDATE COMMAND ON BUS2 RELATION
+
+
+UPDATE Selected Rows & Multiple Rows
+
+
+mysql> Update Bus2 SET Source='Secundrabad' where BusNo=1234; Query OK, 1 row affected (0.05 sec) Rows matched: 1 Changed: 1 Warnings: 0
+
+ 
+DELETE COMMAND ON BUS2 RELATION
+
+DELETES Selected Rows and Multiple Rows
+
+
+mysql> Delete from Bus2 where BusNo=1234; Query OK, 1 row affected (0.05 sec) mysql> select * from Bus2;
+
+ 
+mysql> Delete from Bus2 where Source=’Secundrabad’; Query OK, 1 row affected (0.05 sec) mysql> select * from Bus2;
+
