@@ -1,0 +1,185 @@
+USING UNION , INTERSECT , AND EXCEPT
+
+
+
+1).Find the names of sailors who have reserved a red or a green boat.
+
+
+
+
+
+
+
+
+OR
+
+ 
+
+
+
+
+2). Find the names of sailors who have reserved both a red and a green boat. SELECT S.SNAME
+FROM SAILORS S,RESERVES R,BOATS B
+
+WHERE S.SID=R.SID AND R.BID=B.BID AND B.COLOR='red' INTERSECT SELECT S2.SNAME
+FROM SAILORS S2,RESERVES R2,BOATS B2
+
+WHERE S2.SID=R2.SID AND R2.BID=B2.BID AND B2.COLOR='green';
+
+
+
+NESTED QUERIES
+
+1)	Find the Names of sailors who have reserved boat 103
+
+
+
+2)	Find the names of Sailors who have reserved a red Boat
+
+ 
+
+
+
+
+
+
+3)	Find the names of Sailors who have NOT reserved a red Boat
+
+
+
+Correlated Nested Queries:
+
+
+
+1) Find the names of Sailors who have reserved a red Boat
+
+
+
+
+Set Comparison Operators:
+
+1)	Find sailors whose rating is better than some sailor called Horatio
+
+
+
+ 
+
+
+
+
+2)	Find the sailors with the highest rating.
+
+mysql> SELECT S.sid FORM Sailors WHERE S.rating>=ALL(SELECT S2.rating FROM Sailors S2);
+
+
+The GROUP BY and HAVING Clauses:
+
+1)	Find the age of the youngest sailor for each rating level.
+
+
+2)	Find the age of the youngest sailor who is eligible to vote for each rating level with at least two such sailors
+
+
+ 
+
+
+
+
+
+
+3)	For each red boat , find the number of reservations for this boat
+
+
+
+
+
+
+4)	Find the average age of sailors for each rating level that has at least two sailors
+
+
+ 
+SELECT MAX(column_name) FROM table_name
+WHERE condition;
+
+•	COUNT():The COUNT() function returns the number of rows that matches a specified criteria.
+
+Syntax:
+
+SELECT COUNT(column_name) FROM table_name
+WHERE condition;
+
+•	AVG():The AVG() function returns the average value of a numeric column.
+
+Syntax:
+
+SELECT AVG(column_name) FROM table_name
+WHERE condition;
+
+
+•	SUM():The SUM() function returns the total sum of a numeric column.
+
+Syntax:
+
+SELECT SUM(column_name) FROM table_name
+WHERE condition;
+
+•	ORDERBY(): The ORDER BY keyword is used to sort the result-set in ascending or descending order. The ORDER BY keyword sorts the records in ascending order by default. To sort the records in descending order, use the DESC keyword.
+
+Syntax:
+SELECT column1, column2, ... FROM table_name
+ORDER BY column1, column2, ... ASC|DESC;
+
+
+
+
+
+
+What is operators?
+An operator is a reserved word or a character used primarily in an SQL statement's WHERE clause to perform operation(s), such as comparisons and arithmetic operations. These Operators are
+ 
+used to specify conditions in an SQL statement and to serve as conjunctions for multiple conditions in a statement.
+
+The Operators are: AND, OR, NOT, BETWEEN, LESS THAN,GREATER THAN.
+
+•	AND: The WHERE clause can be combined with AND operators. The AND operators are used to filter records based on more than one condition. The AND operator displays a record if all the conditions separated by AND is TRUE.
+
+Syntax:
+
+SELECT column1, column2, ... FROM table_name
+WHERE condition1 AND condition2 AND condition3 ...;
+
+•	OR: The WHERE clause can be combined with OR operators. The OR operators are used to filter records based on more than one condition: The OR operator displays a record if any of the conditions separated by OR is TRUE.
+
+Syntax:
+
+SELECT column1, column2, ... FROM table_name
+WHERE condition1 OR condition2 OR condition3 ...;
+
+•	NOT:The WHERE clause can be combined with AND, OR, and NOT operators.The NOT operator displays a record if the condition(s) is NOT TRUE.
+
+Syntax:
+
+SELECT column1, column2, ... FROM table_name
+WHERE NOT condition;
+
+
+•	BETWEEN: The BETWEEN operator selects values within a given range. The values can be numbers, text, or dates. The BETWEEN operator is inclusive: begin and end values are included.
+
+Syntax:
+
+SELECT column_name(s) FROM table_name
+WHERE column_name BETWEEN value1 AND value2;
+
+•	LESS THAN: Less than operator is used to find out less value from table. We can used WHERE clause.
+
+Syntax:
+ 
+SELECT * from table_name WHERE condition;
+
+•	GREATER THAN: Greater than operator is used to find out greater value from table. We can used WHERE clause.
+
+Syntax:
+SELECT * from table_name WHERE condition;
+
+Conclusion: We have studied SQL DML commands and SQL Functions and Operators and perform all the queries on database table.
+ 
