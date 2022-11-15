@@ -1,0 +1,24 @@
+EXPERIMENT – 4 PRACTICING DDL COMMANDS
+
+AIM : Creating Tables and altering the Tables
+
+Mysql>Create table passenger2(passportId Integer Primary Key,Name varchar(10) Not Null,Age Integer Not Null,Sex char,Address varchar(20) Not Null);
+
+Mysql> desc passenger2;
+
+USING ALTER COMMAND
+
+Adding Extra column to Existing Table
+
+Mysql>Alter table passenger3 add column TicketNo varchar(10);
+
+ 
+Mysql>Alter Table passenger3 add Foreign key(TicketNo) references Ticket(TicketNo);
+
+Mysql>Alter Table passenger3 Modify column Name varchar(20);
+
+ 
+Mysql>Alter table passenger drop foreign key fk1;
+
+Mysql> Alter table passenger2 Drop column TicketNo;
+
