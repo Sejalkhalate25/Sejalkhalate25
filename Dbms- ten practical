@@ -1,0 +1,69 @@
+EXPERIMENT – 10
+Cursors
+Aim: Declare a cursor that defines a result set. Open the cursor to establish the result set. Fetch the data into local variables as needed from the cursor, one row at a time. Close the cursor when done.
+
+
+Cursors
+In MySQL, a cursor allows row-by-row processing of the result sets. A cursor is used for the result set and returned from a query. By using a cursor, you can iterate, or by step through the results of a query and perform certain operations on each row. The cursor allows you to iterate through the result set and then perform the additional processing only on the rows that require it.
+
+In a cursor contains the data in a loop. Cursors may be different from SQL commands that operate on all the rows in the returned by a query at one time.
+
+There are some steps we have to follow, given below :
+
+□	Declare a cursor
+
+□	Open a cursor statement
+
+□	Fetch the cursor
+
+□	Close the cursor
+
+
+1	. Declaration of Cursor : To declare a cursor you must use the DECLARE statement. With the help of the variables, conditions and handlers we need to declare a cursor before we can use it. first of all we will give the cursor a name, this is how we will refer to it later in the procedure. We can have more than one cursor in a single procedure so its necessary to give it a name that will in some way tell us what its doing. We then need to specify the select statement we want to associate with the cursor. The SQL statement can be any valid SQL statement and it is possible to use a dynamic where clause using variable or parameters as we have seen previously.
+ 
+
+
+
+
+
+Syntax : DECLARE cursor_name CURSOR FOR select_statement;
+
+
+2	. Open a cursor statement : For open a cursor we must use the open statement.If we want to fetch rows from it you must open thecursor.
+
+Syntax : OPEN cursor_name;
+
+
+
+
+3	. Cursor fetch statement : When we have to retrieve the next row from the cursor and move the cursor	to next row then you need to fetch the cursor.
+
+Synatx : FETCH cursor_name INTO var_name;
+
+
+If any row exists, then the above statement fetches the next row and cursor pointer moves ahead to the next row.
+
+4	. Cursor close statement : By this statement closed the open cursor.
+
+Syntax: CLOSE_name;
+
+
+By this statement we can close the previously opened cursor. If it is not closed explicitly then a cursor is closed at the end of compound statement in which that was declared.
+
+Delimiter $$
+
+Create procedure p1(in_customer_id int) begin declare v_id int;
+declare v_name varchar(20); declare v_finished integer default 0;
+declare c1 cursor for select sid,sname from students where sid=in_customer_id; declare continue handler for NOT FOUND set v_finished=1;
+open c1; std:LOOP
+fetch c1 into v_id,v_name; if v_finished=1 then leave std; end if;
+select concat(v_id,v_name); end LOOP std; close c1; end;
+ 
+
+
+
+
+
+ 
+
+
